@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "stores/counter-store.js", "app/signin/page.tsx", "stores/useAuthStore.js", "pages/api/[...nextauth]/route.js", "app/signout/page.tsx", "app/page.tsx", "app/layout.tsx"  ],
   "exclude": ["node_modules"]
 }

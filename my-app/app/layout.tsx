@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { CounterStoreProvider } from '@/providers/counter-store-provider'
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+// import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../theme';
+// import { SessionProvider } from "next-auth/react";
 
 
 const geistSans = Geist({
@@ -32,15 +32,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-           <CounterStoreProvider>
-            <AppRouterCacheProvider>
+      
                <ThemeProvider theme={theme}>
 
                  {children}
                </ThemeProvider>
              
-            </AppRouterCacheProvider>
-            </CounterStoreProvider>
+        
       </body>
     </html>
   );
