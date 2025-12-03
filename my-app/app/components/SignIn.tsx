@@ -5,7 +5,7 @@ export default function SignIn() {
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center px-4">
       <form action={async () => {
         "use server"
-        await signIn("google")
+        await signIn("google", { redirectTo: "/dashboard" })
       }}
       className="w-full max-w-sm bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-6 text-center">
         <h1 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-white">

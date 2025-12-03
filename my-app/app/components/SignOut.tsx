@@ -1,6 +1,13 @@
+import { signOut } from "@/auth";
+
 export default function SignOut() {
   return (
-    <form>
+    <form
+       action={async () => {
+        "use server"
+        await signOut()
+      }}
+    >
       <button
         title="Logout"
         className="absolute top-4 right-4 text-gray-500 hover:text-red-500 transition cursor-pointer"
