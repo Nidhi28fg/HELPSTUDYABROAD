@@ -1,12 +1,13 @@
 import { signOut } from "@/auth";
 
 export default function SignOut() {
-  return (
+  return (<>
     <form
-       action={async () => {
+      action={async () => {
         "use server"
         await signOut()
       }}
+
     >
       <button
         title="Logout"
@@ -29,5 +30,5 @@ export default function SignOut() {
         </svg>
       </button>
     </form>
-  );
+    </>);
 }

@@ -1,6 +1,14 @@
 import { signIn } from "@/auth";
+import { auth } from '@/auth';
+import { redirect } from "next/dist/client/components/navigation";
 
-export default function SignIn() {
+export default async function SignIn() {
+  const session = await auth();
+    console.log(session);
+    if (session) {
+      return redirect("/dashboard");
+    }
+
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center px-4">
       <form action={async () => {
@@ -16,7 +24,7 @@ export default function SignIn() {
           type="submit"
           className="flex items-center justify-center gap-2 w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-white py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition"
         >
-          {/* Google logo */}
+        
           <svg
             width="20"
             height="20"

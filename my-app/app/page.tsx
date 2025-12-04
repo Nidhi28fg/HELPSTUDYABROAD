@@ -1,16 +1,14 @@
 import SignOut from "./components/SignOut";
+import { auth } from "../auth"
+import { redirect } from "next/navigation";
+import Image from "next/image";
 
-export default function Home() {
-  const session = {
-    user: {
-      name: "Anurag Singh",
-      email: "anuragsinghbam@gmail.com",
-      image:
-        "https://lh3.googleusercontent.com/a/ACg8ocIPFMhOGmlQu2QuyhScz7_gaCLoAXGFqdAXxP79QUK-hcGvauQZ=s96-c",
-    },
-    expires: "2025-07-20T17:09:10.396Z",
-  };
-
+export default async function Home() {
+  const session = await auth();
+  console.log(session);
+  if (!session) {
+    return redirect("/signin");
+  }
   const { user } = session;
 
   const formattedDate = new Date(session.expires).toLocaleString();
@@ -22,11 +20,13 @@ export default function Home() {
           User Profile
         </h1>
 
-        <div className="relative bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-8 text-center">
+        {user && (<div className="relative bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-8 text-center">
           <SignOut />
-          <img
-            src={user.image}
-            alt={user.name}
+          <Image
+            src={user.image as string}
+            alt={user.name as string}
+            width={200}
+            height={200}
             className="w-18 h-18 rounded-full mx-auto mb-4"
           />
           <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
@@ -40,7 +40,7 @@ export default function Home() {
               {formattedDate}
             </span>
           </div>
-        </div>
+        </div>)}
       </div>
     </div>
   );
