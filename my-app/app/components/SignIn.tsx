@@ -1,20 +1,20 @@
-import { signIn } from "@/auth";
+"use client";
 import { auth } from '@/auth';
 import { redirect } from "next/dist/client/components/navigation";
+import { signInAction } from "../actions/authAction";
 
-export default async function SignIn() {
-  const session = await auth();
-    console.log(session);
-    if (session) {
-      return redirect("/dashboard");
-    }
+interface Props {
+  user1: {
+    name: string;
+    email: string;
+    image: string;
+  };
+}
 
+export default function SignIn(){
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center px-4">
-      <form action={async () => {
-        "use server"
-        await signIn("google", { redirectTo: "/dashboard" })
-      }}
+      <form action={signInAction}
       className="w-full max-w-sm bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-6 text-center">
         <h1 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-white">
           Sign in to Your Account
