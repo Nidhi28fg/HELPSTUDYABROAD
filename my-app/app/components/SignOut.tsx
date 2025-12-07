@@ -13,7 +13,7 @@ export default function SignOut() {
     >
       <button
         title="Logout"
-        className="absolute top-4 right-4 text-gray-500 hover:text-red-500 transition cursor-pointer"
+        className="absolute top-4 right-4 text-blue-500 hover:text-red-500 transition cursor-pointer font-bold"
      
       >
         <svg

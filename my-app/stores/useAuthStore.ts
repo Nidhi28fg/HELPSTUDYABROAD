@@ -13,31 +13,29 @@ export type UserActions = {
 export type UserStore = UserState & UserActions;
 
 export const useAuthStore = create<UserStore>()(
-  devtools(  // DevTools के लिए (optional)
-    persist(  // localStorage persistence (optional)
+  devtools(  
+    persist(  
       (set, get) => ({
         user: null,  
         setUser: (newUser) => {
           console.log("🔥 setUser called:", newUser);  // Debug log
           set({ user: newUser });
         },
-        
         clearUser: () => {
           console.log("🗑️ clearUser called");
-           set({ user: null });
-           if (typeof window !== "undefined") {
+          set({ user: null });
+          if (typeof window !== "undefined") {
             localStorage.removeItem("auth-storage");
           }
         }
       }),
       {
         name: 'auth-storage', 
-        // localStorage key
       }
     ),
-    { name: 'AuthStore' }  // DevTools name
+    { name: 'AuthStore' } 
   )
 );
 
-// Export for vanilla store access (optional)
+
 export const authStore = useAuthStore;
