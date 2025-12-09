@@ -47,7 +47,11 @@ export default function Dashboard({ user1 }: Props) {
 
   return (<>
     {user && (<>
-     <Box sx={{ flexGrow: 1 }}>
+     <Box 
+      sx={{ flexGrow: 1,
+ 
+       }}
+      >
         <Grid container spacing={2}>
           <Grid item xs={3} md={1}>
             <Item>
@@ -55,7 +59,7 @@ export default function Dashboard({ user1 }: Props) {
             </Item>
           </Grid>
 
-          <Grid item xs={9} md={11}>
+          <Grid item xs={9} md={11} >
             <Item>
               <div className='flex justify-center items-center gap-5 '>
                 <Avatar alt={user.name} src={user.image} 
@@ -80,12 +84,11 @@ export default function Dashboard({ user1 }: Props) {
                   </Typography>
                   </div>
               </div>
-              <PaginationRounded />
-            </Item>
+              </Item>
+               <Item>User List </Item> 
+               <Item><PaginationRounded /> </Item>
+           
           </Grid>
-
-
-
         </Grid>
       </Box>
 

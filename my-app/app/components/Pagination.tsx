@@ -3,7 +3,10 @@ import Stack from '@mui/material/Stack';
 
 export default function PaginationRounded() {
   return (
-    <Stack spacing={2}>
+    <Stack spacing={2}
+    className='flex justify-center items-center'
+    
+    >
         <Pagination count={10} variant="outlined" shape="rounded" />
     </Stack>
   );
