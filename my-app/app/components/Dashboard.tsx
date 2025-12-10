@@ -1,7 +1,6 @@
 "use client";
 
 import { Typography, Button, Avatar } from '@mui/material';
-import SignOut from "../components/SignOut";
 import { useAuthStore } from "@/stores/useAuthStore";
 import { useEffect } from 'react';
 import Sidebar from './Sidebar';
@@ -47,11 +46,7 @@ export default function Dashboard({ user1 }: Props) {
 
   return (<>
     {user && (<>
-     <Box 
-      sx={{ flexGrow: 1,
- 
-       }}
-      >
+      <Box >
         <Grid container spacing={2}>
           <Grid item xs={3} md={1}>
             <Item>
@@ -61,33 +56,35 @@ export default function Dashboard({ user1 }: Props) {
 
           <Grid item xs={9} md={11} >
             <Item>
-              <div className='flex justify-center items-center gap-5 '>
-                <Avatar alt={user.name} src={user.image} 
-                sx={{ width:{ 
-                  xs:34,
-                  sm:44,
-                  md:84,
-                }, height:{
-                  xs:34,
-                  sm:44,
-                  md:84,
-                }, 
-              }}
-                 />
-                 <div className='flex flex-col justify-center items-center'>
-                <Typography variant="h4" gutterBottom >
-                  Welcome, {user.name}!
-                  
-                </Typography>
-                <Typography variant="h6" gutterBottom >
+              <div className='flex justify-center h-[20%] items-center'>
+                <Avatar alt={user.name} src={user.image}
+                  sx={{
+                    width: {
+                      xs: 34,
+                      sm: 44,
+                      md: 84,
+                    }, height: {
+                      xs: 34,
+                      sm: 44,
+                      md: 84,
+                    },
+                  }}
+                />
+                <div className='flex flex-col justify-center items-center'>
+                  <Typography variant="h4" gutterBottom >
+                    Welcome, {user.name}!
+
+                  </Typography>
+                  <Typography variant="h6" gutterBottom >
                     Email: {user.email}
                   </Typography>
-                  </div>
+                </div>
               </div>
-              </Item>
-               <Item>User List </Item> 
-               <Item><PaginationRounded /> </Item>
+            <div className='h-[70%]'> User List </div>   
+           <div className='h-[10%]'>   <PaginationRounded /></div>  
+            </Item>
            
+
           </Grid>
         </Grid>
       </Box>
