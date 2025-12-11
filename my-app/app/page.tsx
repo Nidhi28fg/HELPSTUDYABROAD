@@ -2,10 +2,11 @@ import SignOut from "./components/SignOut";
 import { auth } from "../auth"
 import { redirect } from "next/navigation";
 import Image from "next/image";
+import UserList from "./components/UserList";
 
 export default async function Home() {
   const session = await auth();
-  console.log(session);
+  
   if (!session) {
     return redirect("/signin");
   }
@@ -41,6 +42,8 @@ export default async function Home() {
             </span>
           </div>
         </div>)}
+
+        <UserList/>
       </div>
     </div>
   );
