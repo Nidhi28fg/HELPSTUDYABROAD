@@ -30,10 +30,9 @@ export default function UserList() {
     
   return (
   <div>
-            <h1>Posts</h1>
             <ul>
                 {data.map((post) => (
-                    <li key={post.id}>{post.firstName}</li>
+                    <li key={post.id}> {post.firstName} </li>
                 ))}
             </ul>
         </div>
