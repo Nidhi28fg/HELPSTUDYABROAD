@@ -2,18 +2,15 @@ import SignOut from "./components/SignOut";
 import { auth } from "../auth"
 import { redirect } from "next/navigation";
 import Image from "next/image";
-import UserList from "./components/UserList";
+
 
 export default async function Home() {
   const session = await auth();
-  
   if (!session) {
     return redirect("/signin");
   }
   const { user } = session;
-
   const formattedDate = new Date(session.expires).toLocaleString();
-
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center p-6">
       <div className="w-full max-w-sm">
@@ -43,7 +40,7 @@ export default async function Home() {
           </div>
         </div>)}
 
-        <UserList/>
+       
       </div>
     </div>
   );

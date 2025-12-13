@@ -1,12 +1,14 @@
 import { create } from 'zustand';
-import { persist, devtools } from 'zustand/middleware';  // Optional: persistence + devtools
+import { persist, devtools } from 'zustand/middleware';  
 
 export type UserState = {
-  user:  { name: string; email: string; image: string } | null;  // number | string → string | null बेहतर
+  user:  { name: string; email: string; image: string } | null; 
+  data: null;
 }
 
 export type UserActions = {
   setUser: (newUser: { name: string; email: string; image: string } | null) => void;
+  setData: (newData : any) => void;
   clearUser: () => void;  
 }
 
@@ -16,13 +18,16 @@ export const useAuthStore = create<UserStore>()(
   devtools(  
     persist(  
       (set, get) => ({
-        user: null,  
+        user: null,
+        data: null,
         setUser: (newUser) => {
-          console.log("🔥 setUser called:", newUser);  // Debug log
+          console.log("🔥 setUser called:", newUser);  
           set({ user: newUser });
         },
-        clearUser: () => {
-          console.log("🗑️ clearUser called");
+        setData: (newData) => {
+          set({data: newData})
+        },
+        clearUser: () => {          
           set({ user: null });
           if (typeof window !== "undefined") {
             localStorage.removeItem("auth-storage");
