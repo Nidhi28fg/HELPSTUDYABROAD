@@ -2,6 +2,7 @@ import SignOut from "./components/SignOut";
 import { auth } from "../auth"
 import { redirect } from "next/navigation";
 import Image from "next/image";
+import { Button } from "@mui/material";
 
 
 export default async function Home() {
@@ -25,7 +26,7 @@ export default async function Home() {
             alt={user.name as string}
             width={200}
             height={200}
-            className="w-18 h-18 rounded-full mx-auto mb-4"
+            className="w-38 h-38 rounded-full mx-auto mb-4"
           />
           <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
             {user.name}
@@ -38,6 +39,10 @@ export default async function Home() {
               {formattedDate}
             </span>
           </div>
+          <div className="mt-5">
+          <Button variant="contained" size="large" href="/dashboard" >
+  Dashboard
+</Button></div>
         </div>)}
 
        

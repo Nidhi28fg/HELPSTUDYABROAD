@@ -80,7 +80,12 @@ export default function Dashboard({ user1 }: Props) {
                   </Typography>
                 </div>
               </div>
-            <div className='h-[70%]'> User List </div>   
+            <div className='h-[70%]'> 
+               <div className="mt-5">
+          <Button variant="contained" size="large" href="/dashboard/user" >
+  User List
+</Button></div>
+               </div>   
            <div className='h-[10%]'>   <PaginationRounded /></div>  
             </Item>
            
