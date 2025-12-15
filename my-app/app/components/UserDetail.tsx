@@ -86,97 +86,97 @@ export default function UserDetail() {
                 alt={`${data.firstName} ${data.lastName}`}
               />
             </div>
-            <Typography variant="h4" sx={{ textAlign: "center"}}>
+            <Typography variant="h4" sx={{ textAlign: "center" }}>
               {data.firstName} {data.maidenName} {data.lastName}
             </Typography>
-        
-          <DetailBox detailname="Age" detail={data.age} />
-<DetailBox detailname="Gender" detail={data.gender} />
-<DetailBox detailname="Email" detail={data.email} />
-<DetailBox detailname="Phone" detail={data.phone} />
-<DetailBox detailname="Username" detail={data.username} />
-          
+
+            <DetailBox detailname="Age" detail={data.age} />
+            <DetailBox detailname="Gender" detail={data.gender} />
+            <DetailBox detailname="Email" detail={data.email} />
+            <DetailBox detailname="Phone" detail={data.phone} />
+            <DetailBox detailname="Username" detail={data.username} />
+
           </Item>
         </Grid>
         <Grid>
           <Item>
-          <Typography variant="h4" sx={{ textAlign: "center"}}>
+            <Typography variant="h4" sx={{ textAlign: "center" }}>
               {data.lastName}'s Details
-            </Typography>    
-           
-<DetailBox detailname="Birth Date" detail={data.birthDate} />
-<DetailBox detailname="Blood Group" detail={data.bloodGroup} />
-<DetailBox detailname="Height" detail={data.height} />
-<DetailBox detailname="Weight" detail={data.weight} />
-<DetailBox detailname="Eye Color" detail={data.eyeColor} />
-<DetailBox
-  detailname="Hair"
-  detail={`${data.hair.color} (${data.hair.type})`}
-/>
+            </Typography>
 
-{/* Address */}
-<DetailBox detailname="Address" detail={data.address.address} />
-<DetailBox
-  detailname="City / State"
-  detail={`${data.address.city}, ${data.address.state} (${data.address.stateCode})`}
-/>
-<DetailBox
-  detailname="Postal / Country"
-  detail={`${data.address.postalCode}, ${data.address.country}`}
-/>
-<DetailBox
-  detailname="Coordinates"
-  detail={`${data.address.coordinates.lat}, ${data.address.coordinates.lng}`}
-/>
+            <DetailBox detailname="Birth Date" detail={data.birthDate} />
+            <DetailBox detailname="Blood Group" detail={data.bloodGroup} />
+            <DetailBox detailname="Height" detail={data.height} />
+            <DetailBox detailname="Weight" detail={data.weight} />
+            <DetailBox detailname="Eye Color" detail={data.eyeColor} />
+            <DetailBox
+              detailname="Hair"
+              detail={`${data.hair.color} (${data.hair.type})`}
+            />
 
-{/* Bank */}
-<DetailBox detailname="Card Number" detail={data.bank.cardNumber} />
-<DetailBox detailname="Card Type" detail={data.bank.cardType} />
-<DetailBox detailname="Expiry" detail={data.bank.cardExpire} />
-<DetailBox detailname="IBAN" detail={data.bank.iban} />
-<DetailBox detailname="Currency" detail={data.bank.currency} />
+            {/* Address */}
+            <DetailBox detailname="Address" detail={data.address.address} />
+            <DetailBox
+              detailname="City / State"
+              detail={`${data.address.city}, ${data.address.state} (${data.address.stateCode})`}
+            />
+            <DetailBox
+              detailname="Postal / Country"
+              detail={`${data.address.postalCode}, ${data.address.country}`}
+            />
+            <DetailBox
+              detailname="Coordinates"
+              detail={`${data.address.coordinates.lat}, ${data.address.coordinates.lng}`}
+            />
 
-{/* Company */}
-<DetailBox
-  detailname="Job"
-  detail={`${data.company.title} - ${data.company.department}`}
-/>
-<DetailBox detailname="Company" detail={data.company.name} />
-<DetailBox
-  detailname="Company Address"
-  detail={`${data.company.address.address}, ${data.company.address.city}`}
-/>
-<DetailBox
-  detailname="Company State"
-  detail={`${data.company.address.state} (${data.company.address.stateCode})`}
-/>
-<DetailBox
-  detailname="Company Postal / Country"
-  detail={`${data.company.address.postalCode}, ${data.company.address.country}`}
-/>
-<DetailBox
-  detailname="Company Coordinates"
-  detail={`${data.company.address.coordinates.lat}, ${data.company.address.coordinates.lng}`}
-/>
+            {/* Bank */}
+            <DetailBox detailname="Card Number" detail={data.bank.cardNumber} />
+            <DetailBox detailname="Card Type" detail={data.bank.cardType} />
+            <DetailBox detailname="Expiry" detail={data.bank.cardExpire} />
+            <DetailBox detailname="IBAN" detail={data.bank.iban} />
+            <DetailBox detailname="Currency" detail={data.bank.currency} />
 
-{/* Crypto */}
-<DetailBox detailname="Coin" detail={data.crypto.coin} />
-<DetailBox detailname="Wallet" detail={data.crypto.wallet} />
-<DetailBox detailname="Network" detail={data.crypto.network} />
+            {/* Company */}
+            <DetailBox
+              detailname="Job"
+              detail={`${data.company.title} - ${data.company.department}`}
+            />
+            <DetailBox detailname="Company" detail={data.company.name} />
+            <DetailBox
+              detailname="Company Address"
+              detail={`${data.company.address.address}, ${data.company.address.city}`}
+            />
+            <DetailBox
+              detailname="Company State"
+              detail={`${data.company.address.state} (${data.company.address.stateCode})`}
+            />
+            <DetailBox
+              detailname="Company Postal / Country"
+              detail={`${data.company.address.postalCode}, ${data.company.address.country}`}
+            />
+            <DetailBox
+              detailname="Company Coordinates"
+              detail={`${data.company.address.coordinates.lat}, ${data.company.address.coordinates.lng}`}
+            />
 
-{/* Other Info */}
-<DetailBox detailname="University" detail={data.university} />
-<DetailBox detailname="IP" detail={data.ip} />
-<DetailBox detailname="MAC Address" detail={data.macAddress} />
-<DetailBox detailname="EIN" detail={data.ein} />
-<DetailBox detailname="SSN" detail={data.ssn} />
-<DetailBox detailname="User Agent" detail={data.userAgent} />
-<DetailBox detailname="Role" detail={data.role} />
+            {/* Crypto */}
+            <DetailBox detailname="Coin" detail={data.crypto.coin} />
+            <DetailBox detailname="Wallet" detail={data.crypto.wallet} />
+            <DetailBox detailname="Network" detail={data.crypto.network} />
+
+            {/* Other Info */}
+            <DetailBox detailname="University" detail={data.university} />
+            <DetailBox detailname="IP" detail={data.ip} />
+            <DetailBox detailname="MAC Address" detail={data.macAddress} />
+            <DetailBox detailname="EIN" detail={data.ein} />
+            <DetailBox detailname="SSN" detail={data.ssn} />
+            <DetailBox detailname="User Agent" detail={data.userAgent} />
+            <DetailBox detailname="Role" detail={data.role} />
 
           </Item>
         </Grid>
       </Grid>
-  
+
     </Box>
   );
 }
