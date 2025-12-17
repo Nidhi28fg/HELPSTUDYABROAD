@@ -1,15 +1,5 @@
 "use client";
-import { auth } from '@/auth';
-import { redirect } from "next/dist/client/components/navigation";
 import { signInAction } from "../actions/authAction";
-
-interface Props {
-  user1: {
-    name: string;
-    email: string;
-    image: string;
-  };
-}
 
 export default function SignIn(){
   return (

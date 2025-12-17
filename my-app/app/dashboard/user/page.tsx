@@ -10,11 +10,6 @@ export default async function Page() {
   if (!session?.user) {
     redirect("/signin");
   }
-    const safeUser = {
-    name: session.user.name || "Unknown User",
-    email: session.user.email || "Not Provided",
-    image: session.user.image || ""
-  };
 
   return <><User /></>
 }

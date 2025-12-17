@@ -3,13 +3,11 @@
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { styled } from "@mui/material/styles";
 import Box, { BoxProps } from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
 import DetailBox from "./DetailBox";
-import { Interface } from "readline";
+import Image from 'next/image';
 
 
 function Item(props: BoxProps) {
@@ -20,10 +18,8 @@ function Item(props: BoxProps) {
         (theme) => ({
           p: 1,
           m: 1,
-          // bgcolor: 'grey.100',
           color: 'grey.800',
-          // border: '1px solid',
-          borderColor: 'grey.300',
+           borderColor: 'grey.300',
           borderRadius: 2,
           fontSize: '0.875rem',
           fontWeight: '700',
@@ -40,12 +36,85 @@ function Item(props: BoxProps) {
   );
 }
 
+interface Student {
+   firstName: string;
+  maidenName: string;
+  lastName: string;
+  age: number;
+  gender: string;
+  email: string;
+  phone: string;
+  username: string;
+  image: string;
+  birthDate: string;
+  bloodGroup: string;
+  height: number;
+  weight: number;
+  eyeColor: string;
+  hair: {
+    color: string;
+    type: string;
+  };
+  address: {
+    address: string;
+    city: string;
+    state: string;
+    stateCode: string;
+    postalCode: string;
+    country: string;
+    coordinates: {
+      lat: number;
+      lng: number;
+    };
+  };
+  bank: {
+    cardNumber: string;
+    cardType: string;
+    cardExpire: string;
+    iban: string;
+    currency: string;
+  };
+  company: {
+    department: string;
+    name: string;
+    title: string;
+    address: {
+      address: string;
+      city: string;
+      state: string;
+      stateCode: string;
+      postalCode: string;
+      country: string;
+      coordinates: {
+        lat: number;
+        lng: number;
+      }
+      
+    }
+  }
+    crypto: {
+    coin: string;
+    wallet: string;
+    network: string;
+  };
+  university: string;
+  ip: string;
+  macAddress: string;
+  ein: string;
+  ssn: string;
+  userAgent: string;
+  role: string;
+
+  };
+
+
 
 
 export default function UserDetail() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [data, setData] = useState(null as any);
+ const [data, setData] = useState<Student | null>(null);
+
   const params = useParams();
 
   console.log(params);
@@ -62,13 +131,15 @@ export default function UserDetail() {
         setError(err.message);
         setLoading(false);
       });
-  }, []);
+  }, [params.id]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   console.log(data);
+  if (!data) return <div>No data found</div>;
 
   return (
+    
     <Box>
       <Grid
         sx={{
@@ -81,9 +152,11 @@ export default function UserDetail() {
         <Grid>
           <Item >
             <div className="flex  justify-center items-center">
-              <img
+              <Image
                 src={data.image}
                 alt={`${data.firstName} ${data.lastName}`}
+                 width={800}
+      height={500}
               />
             </div>
             <Typography variant="h4" sx={{ textAlign: "center" }}>
@@ -101,7 +174,7 @@ export default function UserDetail() {
         <Grid>
           <Item>
             <Typography variant="h4" sx={{ textAlign: "center" }}>
-              {data.lastName}'s Details
+             ${`${data.lastName}'s Details`}
             </Typography>
 
             <DetailBox detailname="Birth Date" detail={data.birthDate} />
